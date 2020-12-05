@@ -17,15 +17,11 @@ export const homeInitialState: HomeState = {
 const reducer = createReducer(
   homeInitialState,
   on(fromHomeActions.clearHomeState, () => homeInitialState),
-  on(
-    fromHomeActions.loadCurrentWeather,
-    fromHomeActions.loadCurrentWeatherById,
-    state => ({
-      ...state,
-      loading: true,
-      error: false,
-    }),
-  ),
+  on(fromHomeActions.loadCurrentWeather, state => ({
+    ...state,
+    loading: true,
+    error: false,
+  })),
   on(fromHomeActions.loadCurrentWeatherSuccess, (state, { entity }) => ({
     ...state,
     entity,
